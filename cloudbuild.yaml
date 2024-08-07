@@ -2,7 +2,6 @@ options:
   logging: GCS_ONLY
   logStreamingOption: STREAM_ON
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
-  logsBucket: gs://denkwerk-log-bucket
   machineType: 'N1_HIGHCPU_8' # Optional: Dies ist ein Beispiel, um die Maschine anzupassen
 
 steps:
