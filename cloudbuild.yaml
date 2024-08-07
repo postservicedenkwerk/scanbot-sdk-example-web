@@ -1,3 +1,7 @@
+options:
+  logging: GCS_ONLY
+  logsBucket: gs://denkwerk-log-bucket
+
 steps:
   # Schritt 1: Docker-Image bauen
   - name: 'gcr.io/cloud-builders/docker'
