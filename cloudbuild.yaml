@@ -6,17 +6,13 @@ options:
   machineType: 'N1_HIGHCPU_8' # Optional: Dies ist ein Beispiel, um die Maschine anzupassen
 
 steps:
-  # Schritt 1: Docker-Image bauen in einer unterstützten Region
+  # Schritt 1: Docker-Image bauen
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/scanbot-sdk-example-web:$COMMIT_SHA', '.']
-    # Region für den Build-Schritt angeben, falls erforderlich
-    region: 'us-central1'  # Wechsle zu einer unterstützten Region für den Build
 
   # Schritt 2: Docker-Image zu Google Container Registry pushen
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/scanbot-sdk-example-web:$COMMIT_SHA']
-    # Region für den Push-Schritt angeben, falls erforderlich
-    region: 'us-central1'  # Wechsle zu einer unterstützten Region für den Push
 
   # Schritt 3: Deployment zu Google Cloud Run in Europe-west3
   - name: 'gcr.io/cloud-builders/gcloud'
